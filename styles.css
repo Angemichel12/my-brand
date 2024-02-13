@@ -65,6 +65,15 @@ a:hover {
 .logo:hover {
   cursor: default;
 }
+.login-btn {
+  border: 3px solid #000;
+  border-radius: 10px;
+  width: 6rem;
+  text-align: center;
+}
+.login-btn a {
+  text-underline-offset: 0;
+}
 
 /* HAMBURGER MENU */
 
@@ -159,7 +168,7 @@ section {
 /* profile section*/
 #profile {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5rem;
   height: 80vh;
 }
@@ -208,4 +217,7 @@ section {
 }
 .text-experiance h1 {
   float: left;
+  margin-right: 1rem;
 }
+
+/* About section */
