@@ -5,10 +5,10 @@
   #hamburger-nav {
     display: flex;
   }
-
   #profile,
   .section-container {
     flex-direction: column-reverse;
+    justify-content: space-around;
   }
   section,
   .section-container {
@@ -19,13 +19,14 @@
   }
   .section__pic-container {
     width: 100%;
-    margin-top: 8rem;
+    margin: 0;
   }
   .section__pic-container img {
     width: 100%;
     width: 275px;
     height: 275px;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
+    margin-bottom: 0;
   }
   .profile-social-media {
     display: none;
@@ -35,9 +36,24 @@
   }
   .title {
     text-align: center;
+    margin-bottom: 0;
   }
   .section__text__p1 {
     text-align: center;
+    margin: 0;
+  }
+  .about-description,
+  .section__about-container {
+    width: 100%;
+  }
+
+  .about__header-title {
+    padding-top: 20vh;
+  }
+
+  /* Experience */
+  .details-container {
+    width: 100%;
   }
 }
 
