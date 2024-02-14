@@ -55,6 +55,13 @@
   .details-container {
     width: 100%;
   }
+  .contact-social-media,
+  .contact-form {
+    width: 100%;
+  }
+  .contact-container {
+    gap: 2rem;
+  }
 }
 
 @media screen and (max-width: 600px) {

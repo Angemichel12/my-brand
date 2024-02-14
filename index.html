@@ -13,9 +13,9 @@
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experiences</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#experiences">Experiences</a></li>
-          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#blog">Blogs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -33,11 +33,12 @@
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li>
-            <a href="#experiences" onclick="toggleMenu()">Experiences</a>
+            <a href="#experience" onclick="toggleMenu()">Experiences</a>
           </li>
-          <li><a href="#blogs" onclick="toggleMenu();">Blogs</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+
+          <li><a href="#blog" onclick="toggleMenu();">Blogs</a></li>
           <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
         </div>
       </div>
@@ -463,12 +464,50 @@
           <h3>Send a message</h3>
           <form action="Post">
             <label for="message">Message:</label>
-            <textarea name="" id="message" cols="90" rows="10"></textarea>
+            <textarea name="" id="message" rows="10"></textarea>
             <span><input type="submit" class="btn-submit" value="send" /></span>
           </form>
         </div>
       </div>
     </section>
+
+    <footer>
+      <section>
+        <p class="footer__text__p1">Portfolio of Michel Ange</p>
+        <div class="footer-container">
+          <div class="footer-link-container">
+            <p class="footer-links-items">
+              <a href="#about">About</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#projects">Projects</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#experience">Experience</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#blog">Blogs</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#contact">Contact</a>
+            </p>
+          </div>
+
+          <div class="footer-form">
+            <p>Subscribe to emails from Michel</p>
+            <form action="Post">
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+              <input type="email" placeholder="First Name" />
+              <span
+                ><input type="submit" class="btn-submit" value="send"
+              /></span>
+            </form>
+          </div>
+        </div>
+        <p class="copylight">© 2024 The Michel Ange LLC </p>
+      </section>
+    </footer>
 
     <script src="script.js"></script>
   </body>
