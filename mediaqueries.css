@@ -56,11 +56,27 @@
     width: 100%;
   }
   .contact-social-media,
-  .contact-form {
+  .contact-form,
+  .footer-form,
+  .footer-link-container {
     width: 100%;
   }
-  .contact-container {
+  .contact-container,
+  .footer-container {
     gap: 2rem;
+  }
+
+  /* single blog */
+  .single__blog-title {
+    font-size: 2rem;
+  }
+  .single__blog-form,
+  .comment-description,
+  .comment-sub-info,
+  .comment-info-head,
+  .single__blog-comment-container {
+    width: 84%;
+    overflow: hidden;
   }
 }
 

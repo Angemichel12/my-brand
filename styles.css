@@ -548,20 +548,20 @@ article .icon {
   border-radius: 10px;
   padding: 2rem 1rem;
 }
-.contact-form h3 {
+.comment-title-text {
   text-align: center;
   font-size: 1.5rem;
   color: #555555;
   padding-bottom: 2rem;
 }
-.contact-form label {
+.form-label {
   width: 100%;
   display: block;
   padding-bottom: 2rem;
   font-size: 1.5rem;
   font-weight: bold;
 }
-.contact-form textarea {
+#message {
   display: block;
   margin: 0 auto;
   border: 2px solid black;
@@ -627,4 +627,76 @@ footer {
   text-align: center;
   color: #fff;
   padding: 2rem 0;
+}
+
+/* Single blog page */
+.single__blog-img {
+  width: 100%;
+}
+.single__blog-img img {
+  width: 100%;
+  object-fit: cover;
+}
+.blog-bold {
+  font-weight: bold;
+  color: #000;
+}
+.blog-p-y {
+  padding-bottom: 1rem;
+}
+.single__blog-title {
+  font-size: 3rem;
+}
+.blog-description {
+  text-align: justify;
+}
+.blog-links {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog-links span a {
+  margin-left: 2rem;
+  text-underline-offset: 0;
+  font-size: 1rem;
+}
+.single__blog-form {
+  width: 94%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  margin-left: 1rem;
+  margin-bottom: 4rem;
+}
+.single__blog-form span {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.single__blog-comment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+.comment-description {
+  margin: 2rem 0;
+}
+.comment-sub-info {
+  margin: 2rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.like {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.number {
+  font-size: 1rem;
 }
