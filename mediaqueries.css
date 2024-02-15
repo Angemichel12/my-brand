@@ -103,4 +103,7 @@
   .section__pic-container {
     margin-top: 0;
   }
+  .login-container {
+    width: 100%;
+  }
 }

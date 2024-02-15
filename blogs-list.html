@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blogs list</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <!-- nav -->
+
+    <nav id="desktop-nav">
+      <div class="logo">Michel<span>Ange</span></div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experiences</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#blog">Blogs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="login-btn">
+        <a href="#">login</a>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Michel<span>Ange</span></div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu();">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+
+          <li><a href="#blog" onclick="toggleMenu();">Blogs</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="blogs_list">
+      <div class="search-box">
+        <p class="section__text__p1">Latest blogs</p>
+        <form action="">
+          <input type="text" placeholder="Search..." class="search-input" /><img
+            src="assets/icons/icons8-search-50.png"
+            alt="search"
+            class="search-icon"
+          />
+        </form>
+      </div>
+      <!-- list of blogs -->
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
+              alt="rover"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal">Technology</span>
+            <h4>Why is the Tesla Cybertruck designed the way it is?</h4>
+            <p>An exploration into the truck's polarising design</p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John doe</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
+              alt="balloons"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-purple">Popular</span>
+            <h4>How to Keep Going When You Don’t Know What’s Next</h4>
+            <p>
+              The future can be scary, but there are ways to deal with that
+              fear.
+            </p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John deo</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg"
+              alt="city"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-pink">Design</span>
+            <h4>10 Rules of Dashboard Design</h4>
+            <p>Dashboard Design Guidelines</p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John doe</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
+              alt="rover"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal">Technology</span>
+            <h4>Why is the Tesla Cybertruck designed the way it is?</h4>
+            <p>An exploration into the truck's polarising design</p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John doe</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
+              alt="balloons"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-purple">Popular</span>
+            <h4>How to Keep Going When You Don’t Know What’s Next</h4>
+            <p>
+              The future can be scary, but there are ways to deal with that
+              fear.
+            </p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John deo</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <img
+              src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg"
+              alt="city"
+            />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-pink">Design</span>
+            <h4>10 Rules of Dashboard Design</h4>
+            <p>Dashboard Design Guidelines</p>
+            <div class="card-info-section">
+              <div class="user">
+                <img
+                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
+                  alt="user"
+                />
+                <div class="user-info">
+                  <h5>John doe</h5>
+                  <small>Yesterday</small>
+                </div>
+              </div>
+              <div class="like-comment">
+                <img
+                  src="assets/icons/icons8-heart-50 (1) 1.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+                <img
+                  src="assets/icons/icons8-comment-100.png"
+                  alt=""
+                  class="blog-icon"
+                /><span>2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <section>
+        <p class="footer__text__p1">Portfolio of Michel Ange</p>
+        <div class="footer-container">
+          <div class="footer-link-container">
+            <p class="footer-links-items">
+              <a href="#about">About</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#projects">Projects</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#experience">Experience</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#blog">Blogs</a>
+            </p>
+            <p class="footer-links-items">
+              <a href="#contact">Contact</a>
+            </p>
+          </div>
+
+          <div class="footer-form">
+            <p>Subscribe to emails from Michel</p>
+            <form action="Post">
+              <input type="text" placeholder="First Name" />
+              <input type="text" placeholder="Last Name" />
+              <input type="email" placeholder="First Name" />
+              <span
+                ><input type="submit" class="btn-submit" value="send"
+              /></span>
+            </form>
+          </div>
+        </div>
+        <p class="copylight">© 2024 The Michel Ange LLC </p>
+      </section>
+    </footer>
+  </body>
+</html>
