@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin-dashboard</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- mediaqueries -->
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="person-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Michel Ange</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="home-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="newspaper-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Blogs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="chatbubble-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Messages</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="help-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Help</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="settings-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="lock-closed-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Password</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon"
+                ><ion-icon name="log-out-outline"></ion-icon
+              ></span>
+              <span class="admin-title">Sign out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main section -->
+
+      <div class="main">
+        <div class="topbar flex-space-between">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Search here" />
+              <ion-icon name="search-outline"></ion-icon>
+            </label>
+          </div>
+          <div class="admin-user">
+            <img src="assets/customer01.jpg" alt="" />
+          </div>
+        </div>
+        <!--admin cards -->
+        <div class="cardBox">
+          <div class="admin-card">
+            <div>
+              <div class="numbers">1.6 M</div>
+              <div class="cardName">Visitors</div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div>
+              <div class="numbers">663</div>
+              <div class="cardName">Articles</div>
+            </div>
+          </div>
+
+          <div class="admin-card flex-space-between">
+            <div>
+              <div class="numbers">5.3 M</div>
+              <div class="cardName">Likes</div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div>
+              <div class="numbers">16</div>
+              <div class="cardName">Authors</div>
+            </div>
+          </div>
+        </div>
+        <!-- Blog detail list -->
+        <div class="details">
+          <div class="recentBlogs">
+            <div class="cardHeader flex-space-between">
+              <h2>Recent Blogs</h2>
+              <a href="#" class="view-all-btn">View All</a>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <td>Date</td>
+                  <td>Title</td>
+                  <td>Author</td>
+                  <td>Status</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>02/Feb/2024</td>
+                  <td>Web development in Rwanda</td>
+                  <td>Michel</td>
+                  <td class="status activate">active</td>
+                </tr>
+                <tr>
+                  <td>02/Feb/2024</td>
+                  <td>Web development in Rwanda</td>
+                  <td>Michel</td>
+                  <td class="status panding">Panding</td>
+                </tr>
+                <tr>
+                  <td>02/Feb/2024</td>
+                  <td>Web development in Rwanda</td>
+                  <td>Michel</td>
+                  <td class="status panding">Panding</td>
+                </tr>
+                <tr>
+                  <td>02/Feb/2024</td>
+                  <td>Web development in Rwanda</td>
+                  <td>Michel</td>
+                  <td class="status panding">Panding</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+
+    <!-- ionicons -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
