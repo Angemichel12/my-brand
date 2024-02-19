@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    container
     <nav id="desktop-nav">
       <div class="logo">Michel<span>Ange</span></div>
       <div>
@@ -44,12 +45,12 @@
       </div>
     </nav>
 
-    <section id="profile">
+    <section id="profile" class="flex-space-between">
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">< Michel <span>Ange /></span></h1>
+        <h1 class="title flex-column">< Michel <span>Ange /></span></h1>
         <p class="section__text__p2">Fullstack Developer</p>
-        <div class="experiance-text-container">
+        <div class="experiance-text-container flex-space-between">
           <div class="text-experiance">
             <h1>2</h1>
             <p>Year of experience</p>
@@ -64,7 +65,7 @@
       <div class="section__pic-container">
         <img src="assets/Lukita.png" alt="Profile image" />
       </div>
-      <div class="profile-social-media">
+      <div class="profile-social-media flex-column flex-space-around">
         <img src="assets/icons/icons8-linkedin-50.png" alt="linkedin icon" />
         <img src="assets/icons/icons8-github-100.png" alt="github icon" />
         <img src="assets/icons/icons8-twitter-100.png" alt="twitter icon" />
@@ -74,7 +75,7 @@
 
     <section id="about">
       <h1 class="about__header-title">About</h1>
-      <div class="section__container-text">
+      <div class="section__container-text flex-center flex-wrap">
         <p class="about-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit
           turpis, finibus eu condimentum ut, posuere at ipsum. Maecenas vel
@@ -84,7 +85,7 @@
           nibh, bibendum in enim sed, ullamcorper feugiat nunc.
         </p>
 
-        <div class="section__about-container">
+        <div class="section__about-container flex-center flex-column">
           <div class="section__about-projects">
             <p class="about-title">Fullstack Developer</p>
             <a href="#" class="about-link">projects</a>
@@ -102,12 +103,12 @@
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
+      <div class="flex-center flex-column">
+        <div class="flex-space-between flex-wrap gap-2">
           <div class="details-container">
             <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
+            <div class="article-container gap-2 flex-space-around flex-wrap">
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -118,7 +119,7 @@
                   <p>Experienced</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -129,7 +130,7 @@
                   <p>Experienced</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -140,7 +141,7 @@
                   <p>Intermediate</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -151,7 +152,7 @@
                   <p>Basic</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -162,7 +163,7 @@
                   <p>Basic</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -177,8 +178,8 @@
           </div>
           <div class="details-container">
             <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <article>
+            <div class="article-container gap-2 flex-space-around flex-wrap">
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -189,7 +190,7 @@
                   <p>Intermediate</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -200,7 +201,7 @@
                   <p>Basic</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -211,7 +212,7 @@
                   <p>Basic</p>
                 </div>
               </article>
-              <article>
+              <article class="flex-space-around">
                 <img
                   src="./assets/checkmark.png"
                   alt="Experience icon"
@@ -233,9 +234,9 @@
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <!-- <div class="experience-details-container"> -->
-      <div class="container">
+      <div class="container flex-center flex-wrap">
         <div class="card">
-          <div class="article-container">
+          <div class="article-container gap-2 flex-space-around flex-wrap">
             <img
               src="./assets/project.png"
               alt="Project 1"
@@ -259,7 +260,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="article-container">
+          <div class="article-container gap-2 flex-space-around flex-wrap">
             <img
               src="./assets/project.png"
               alt="Project 2"
@@ -283,7 +284,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="article-container">
+          <div class="article-container gap-2 flex-space-around flex-wrap">
             <img
               src="./assets/project.png"
               alt="Project 3"
@@ -314,7 +315,7 @@
     <section id="blog">
       <p class="section__text__p1">Latest Blogs</p>
       <h1 class="title">Blogs</h1>
-      <div class="container">
+      <div class="container flex-center flex-wrap">
         <div class="card">
           <div class="card-header">
             <img
@@ -322,11 +323,15 @@
               alt="rover"
             />
           </div>
-          <div class="card-body">
+          <div class="card-body flex-center flex-column">
             <span class="tag tag-teal">Technology</span>
-            <h4>Why is the Tesla Cybertruck designed the way it is?</h4>
+            <h4>
+              <a href="detail.html" class="blog-link-detail"
+                >Why is the Tesla Cybertruck designed the way it is?</a
+              >
+            </h4>
             <p>An exploration into the truck's polarising design</p>
-            <div class="card-info-section">
+            <div class="card-info-section flex-space-between gap-2">
               <div class="user">
                 <img
                   src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
@@ -359,14 +364,14 @@
               alt="balloons"
             />
           </div>
-          <div class="card-body">
+          <div class="card-body flex-center flex-column">
             <span class="tag tag-purple">Popular</span>
             <h4>How to Keep Going When You Don’t Know What’s Next</h4>
             <p>
               The future can be scary, but there are ways to deal with that
               fear.
             </p>
-            <div class="card-info-section">
+            <div class="card-info-section flex-space-between gap-2">
               <div class="user">
                 <img
                   src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
@@ -399,11 +404,11 @@
               alt="city"
             />
           </div>
-          <div class="card-body">
+          <div class="card-body flex-center flex-column">
             <span class="tag tag-pink">Design</span>
             <h4>10 Rules of Dashboard Design</h4>
             <p>Dashboard Design Guidelines</p>
-            <div class="card-info-section">
+            <div class="card-info-section flex-space-between gap-2">
               <div class="user">
                 <img
                   src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
@@ -430,15 +435,15 @@
           </div>
         </div>
       </div>
-      <h4 class="more-blogs-links"><a href="#">More Blogs</a></h4>
+      <h4 class="more-blogs-links flex-center"><a href="#">More Blogs</a></h4>
     </section>
 
     <!-- Contact -->
     <section id="contact">
       <p class="section__text__p1">Get in touch</p>
       <h1 class="title">Contact</h1>
-      <div class="contact-container">
-        <div class="contact-social-media">
+      <div class="flex-space-between flex-wrap">
+        <div class="contact-social-media flex-space-around flex-column">
           <p class="contact-social-media-items">
             <img
               src="assets/icons/icons8-linkedin-50.png"
@@ -465,7 +470,9 @@
           <form action="Post">
             <label for="message" class="form-label">Message:</label>
             <textarea name="" id="message" rows="10"></textarea>
-            <span><input type="submit" class="btn-submit" value="send" /></span>
+            <span
+              ><input type="submit" class="btn btn-color-2" value="send"
+            /></span>
           </form>
         </div>
       </div>
@@ -474,7 +481,7 @@
     <footer>
       <section>
         <p class="footer__text__p1">Portfolio of Michel Ange</p>
-        <div class="footer-container">
+        <div class="flex-space-between flex-wrap">
           <div class="footer-link-container">
             <p class="footer-links-items">
               <a href="#about">About</a>
