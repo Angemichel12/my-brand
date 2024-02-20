@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
-    container
     <nav id="desktop-nav">
       <div class="logo">Michel<span>Ange</span></div>
       <div>
@@ -21,7 +20,7 @@
         </ul>
       </div>
       <div class="login-btn">
-        <a href="#">login</a>
+        <a href="login.html">login</a>
       </div>
     </nav>
     <nav id="hamburger-nav">
@@ -77,12 +76,11 @@
       <h1 class="about__header-title">About</h1>
       <div class="section__container-text flex-center flex-wrap">
         <p class="about-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer velit
-          turpis, finibus eu condimentum ut, posuere at ipsum. Maecenas vel
-          consequat mauris. Quisque sodales ipsum aliquet aliquam placerat.
-          Proin varius condimentum sapien. Mauris quis elit nibh. Morbi ut
-          facilisis nisl. Duis et leo ut odio rhoncus porta a a dui. Nullam arcu
-          nibh, bibendum in enim sed, ullamcorper feugiat nunc.
+          Passionate software engineer with a drive for sustainable healthcare
+          in Africa. Award-winning coder, committed to learning and community
+          service. Skilled in Python and machine learning, dedicated to
+          leveraging technology for better medical access and outcomes. Ready to
+          innovate and make a difference.
         </p>
 
         <div class="section__about-container flex-center flex-column">
@@ -243,17 +241,17 @@
               class="project-img"
             />
           </div>
-          <h2 class="experience-sub-title project-title">Project One</h2>
+          <h2 class="experience-sub-title project-title">My Portfolio</h2>
           <div class="btn-container">
             <button
               class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/'"
+              onclick="location.href='https://github.com/Angemichel12/my-brand'"
             >
               Github
             </button>
             <button
               class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/'"
+              onclick="location.href='https://angemichel12.github.io/my-brand/'"
             >
               Live Demo
             </button>
@@ -366,7 +364,11 @@
           </div>
           <div class="card-body flex-center flex-column">
             <span class="tag tag-purple">Popular</span>
-            <h4>How to Keep Going When You Don’t Know What’s Next</h4>
+            <h4>
+              <a href="detail.html" class="blog-link-detail"
+                >How to Keep Going When You Don’t Know What’s Next</a
+              >
+            </h4>
             <p>
               The future can be scary, but there are ways to deal with that
               fear.
@@ -406,7 +408,11 @@
           </div>
           <div class="card-body flex-center flex-column">
             <span class="tag tag-pink">Design</span>
-            <h4>10 Rules of Dashboard Design</h4>
+            <h4>
+              <a href="detail.html" class="blog-link-detail"
+                >10 Rules of Dashboard Design</a
+              >
+            </h4>
             <p>Dashboard Design Guidelines</p>
             <div class="card-info-section flex-space-between gap-2">
               <div class="user">
@@ -435,7 +441,9 @@
           </div>
         </div>
       </div>
-      <h4 class="more-blogs-links flex-center"><a href="#">More Blogs</a></h4>
+      <h4 class="more-blogs-links flex-center">
+        <a href="blogs-list.html">More Blogs</a>
+      </h4>
     </section>
 
     <!-- Contact -->
@@ -482,7 +490,7 @@
       <section>
         <p class="footer__text__p1">Portfolio of Michel Ange</p>
         <div class="flex-space-between flex-wrap">
-          <div class="footer-link-container">
+          <div class="footer-link-container flex-space-around flex-column">
             <p class="footer-links-items">
               <a href="#about">About</a>
             </p>
@@ -505,7 +513,7 @@
             <form action="Post">
               <input type="text" placeholder="First Name" />
               <input type="text" placeholder="Last Name" />
-              <input type="email" placeholder="First Name" />
+              <input type="email" placeholder="E-mail" />
               <span
                 ><input type="submit" class="btn-submit" value="send"
               /></span>
