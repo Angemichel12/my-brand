@@ -806,9 +806,9 @@ form .txt_field {
 }
 
 /* ============ Dashboard ========= */
-.admin-container {
-  position: relative;
-  width: 100%;
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 .navigation {
   position: fixed;
@@ -1032,11 +1032,13 @@ form .txt_field {
   border-radius: 20px;
 }
 .details .cardHeader {
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
 }
 .cardHeader h2 {
   font-weight: 600;
-  color: var(--white);
+  color: var(--blue);
 }
 .cardHeader .view-all-btn {
   position: relative;
@@ -1057,4 +1059,86 @@ form .txt_field {
 .details .recentBlogs table tr {
   color: var(--black1);
   border-bottom: 1px solid var(--border-color);
+}
+.details .recentBlogs table tr:last-child {
+  border-bottom: none;
+}
+.details .recentBlogs table tbody tr:hover {
+  background-color: var(--background-color);
+  color: var(--white);
+}
+
+.details .recentBlogs table tr td {
+  padding: 10px;
+}
+.details .recentBlogs table tr td:last-child {
+  text-align: end;
+}
+.details .recentBlogs table tr td:nth-child(2) {
+  text-align: end;
+}
+.details .recentBlogs table tr td:nth-child(3) {
+  text-align: center;
+}
+.status.activate {
+  padding: 2px 4px;
+  background: #8de02c;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.panding {
+  padding: 2px 4px;
+  background: #e9b10a;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.recentMessages {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  background-color: var(--white);
+  border-radius: 20px;
+}
+.recentMessages .imgBx {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.recentMessages .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recentMessages table tr:hover {
+  background-color: var(--background-color);
+  color: var(--white);
+}
+.recentMessages table tr td {
+  padding: 12px 10px;
+}
+.recentMessages table tr td h2 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+.recentMessages table tr td span {
+  font-size: 10px;
+  color: var(--text-color);
+  line-height: 0;
+}
+
+.recentMessages table tr:hover td span {
+  color: var(--white);
 }
