@@ -61,14 +61,6 @@
               <span class="admin-title">projects</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <span class="icon"
-                ><ion-icon name="settings-outline"></ion-icon
-              ></span>
-              <span class="admin-title">Settings</span>
-            </a>
-          </li>
 
           <li>
             <a href="index.html">
@@ -94,7 +86,38 @@
             </label>
           </div>
           <div class="admin-user">
-            <img src="assets/customer01.jpg" alt="" />
+            <img src="assets/customer01.jpg" alt="" id="prof-user-img" />
+          </div>
+          <div class="sub-menu-wrap">
+            <div class="sub-menu">
+              <div class="profile-user-info">
+                <img src="assets/customer01.jpg" />
+                <h2>James Aldrino</h2>
+              </div>
+              <hr />
+
+              <a href="#" class="sub-menu-link">
+                <ion-icon name="person-add-outline"></ion-icon>
+                <p>Edit profile</p>
+                <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <ion-icon name="settings-outline"></ion-icon>
+                <p>Settings</p>
+                <span>></span>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <ion-icon name="help-outline"></ion-icon>
+                <p>Help</p>
+                <span>></span>
+              </a>
+
+              <a href="index.html" class="sub-menu-link">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <p>Logout</p>
+                <span>></span>
+              </a>
+            </div>
           </div>
         </div>
         <!--admin cards -->
@@ -497,7 +520,9 @@
             <div class="listBlogs">
               <div class="cardHeader">
                 <h2>all projects</h2>
-                <a href="#" class="view-all-btn" id="addblogbtn">Add blog</a>
+                <a href="#" class="view-all-btn" id="addprojectbtn"
+                  >Add project</a
+                >
               </div>
               <table>
                 <thead>

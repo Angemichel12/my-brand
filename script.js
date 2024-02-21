@@ -83,3 +83,11 @@ addBlogBtn.addEventListener("click", () => {
   listtBlogs.style.display = "none";
   addBlog.style.display = "block";
 });
+
+// profile popup
+
+const profileAdmin = document.getElementById("prof-user-img");
+const subMenuWrap = document.querySelector(".sub-menu-wrap");
+profileAdmin.addEventListener("click", () => {
+  subMenuWrap.classList.toggle("open-menu");
+});

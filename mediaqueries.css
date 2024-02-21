@@ -79,7 +79,7 @@
     overflow: hidden;
   }
   .details {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Set grid to one column */
   }
 }
 @media (max-width: 991px) {
