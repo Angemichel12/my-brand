@@ -152,6 +152,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 17vh;
+  position: sticky;
 }
 
 .nav-links {
@@ -814,7 +815,7 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background-color: var(--blue);
+  background-color: var(--background-color);
   border-left: 10px solid --blue;
   transition: 0.5s;
   overflow: hidden;
@@ -834,6 +835,9 @@ body {
   list-style: none;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+.navigation ul li:last-child {
+  margin-top: 12rem;
 }
 .navigation ul li:hover,
 .navigation ul li.hovered {
@@ -1013,6 +1017,7 @@ body {
 }
 
 /* Blog details List */
+
 .details {
   position: relative;
   width: 100%;
@@ -1022,6 +1027,12 @@ body {
   grid-gap: 30px;
   /* margin-top: 10px; */
 }
+#dashboard,
+#blogs,
+#messages {
+  display: none;
+}
+
 .details .recentBlogs {
   position: relative;
   display: grid;
@@ -1031,14 +1042,15 @@ body {
   box-shadow: 0 7px 25px rgba(0, 0, 0.08);
   border-radius: 20px;
 }
-.details .cardHeader {
+.details .cardHeader,
+.listBlogs .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 .cardHeader h2 {
   font-weight: 600;
-  color: var(--blue);
+  color: var(--background-color);
 }
 .cardHeader .view-all-btn {
   position: relative;
@@ -1048,11 +1060,13 @@ body {
   color: var(--white);
   border-radius: 6px;
 }
-.details table {
+.details table,
+.details form {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
+
 .details table thead td {
   font-weight: 600;
 }
@@ -1095,6 +1109,47 @@ body {
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.actions span ion-icon {
+  font-size: 1.75rem;
+  padding-top: 1rem;
+  cursor: pointer;
+}
+.update-action {
+  color: #8de02c;
+}
+.delete-action {
+  color: red;
+}
+
+.pagination {
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: var(--background-color);
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
 }
 
 .recentMessages {
@@ -1141,4 +1196,234 @@ body {
 
 .recentMessages table tr:hover td span {
   color: var(--white);
+}
+
+/* ============= add blogs section ================== */
+.add-blog-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 2rem;
+  padding-right: 4rem;
+  width: 95%;
+  border-radius: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  margin: 1rem;
+}
+.listBlogs {
+  display: block;
+  width: 95%;
+  left: 2rem;
+  padding: 1rem 2rem;
+}
+.listBlogs table {
+  width: 100%;
+}
+.addBlog {
+  width: 95%;
+  position: relative;
+  display: none;
+}
+.add-blog-container {
+  width: 100%;
+}
+
+.upload-img-container {
+  border: 1px solid --black2;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 30px;
+}
+.top-title-img {
+  padding: 0 2rem;
+  width: 97%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.img-area {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: var(--grey);
+  margin-bottom: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.img-area .icon {
+  font-size: 70px;
+}
+.img-area h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.img-area p {
+  color: #999;
+}
+.img-area p span {
+  font-weight: 600;
+}
+.img-area img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 100;
+}
+.img-area::before {
+  content: attr(data-img);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+.img-area.active:hover::before {
+  opacity: 1;
+}
+.select-image {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 15px;
+  background: var(--background-color);
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  border: 1px solid #000;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+.select-image:hover {
+  background: var(--white);
+  color: var(--black1);
+}
+.add-blog-title {
+  max-width: 400px;
+  width: 100%;
+  padding-top: 2rem;
+}
+.add-blog-title form input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.rich-text-container {
+  width: 100%;
+}
+#editor {
+  height: 200px;
+  border: 1px solid black;
+}
+.add-blog-btn {
+  text-align: right;
+  margin: 2rem 0;
+}
+.add-blog-btn a {
+  border: 1px solid var(--black1);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 2rem;
+  background-color: #8de02c;
+  color: var(--white);
+}
+.add-blog-btn a:hover {
+  text-decoration: none;
+}
+.addBlog .cardHeader h2 {
+  padding: 1rem 2rem;
+}
+.listBlogs .cardHeader {
+  margin-bottom: 1rem;
+}
+
+/* =============== Messages section=========== */
+.allMessages {
+  position: relative;
+  display: block;
+  min-height: 500px;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  background-color: var(--white);
+  border-radius: 20px;
+  width: 93%;
+}
+.allMessages .imgBx {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.allMessages .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.allMessages table tr:hover {
+  background-color: var(--background-color);
+  color: var(--white);
+}
+.allMessages table tr td {
+  padding: 12px 10px;
+}
+.allMessages table tr td h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+.allMessages table tr td span {
+  font-size: 15px;
+  color: var(--text-color);
+  line-height: 0;
+}
+
+.allMessages table tr:hover td span {
+  color: var(--white);
+}
+
+.msgActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+.msgActions span ion-icon {
+  font-size: 1.75rem;
+  padding-top: 1rem;
+  cursor: pointer;
+}
+.msgActions .update-action {
+  color: var(--link-color);
+}
+.msgActions .delete-action {
+  color: red;
 }

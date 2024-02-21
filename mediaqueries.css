@@ -104,6 +104,9 @@
   .recentBlogs {
     overflow-x: auto;
   }
+  table tr td:first-child {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
