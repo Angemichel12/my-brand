@@ -914,9 +914,12 @@ body {
 }
 
 /* ==============main======= */
+#admin-section-container {
+  width: 92%;
+}
 .main {
   position: absolute;
-  width: calc(100% - 300px);
+  width: calc(100% - 350px);
   left: 300px;
   min-height: 100vh;
   background-color: var(--white);
@@ -927,10 +930,11 @@ body {
   left: 80px;
 }
 .topbar {
-  width: 98%;
+  width: 90%;
   height: 60px;
   align-items: center;
   padding: 0 10px;
+  overflow: hidden;
 }
 .toggle {
   position: relative;
@@ -988,7 +992,7 @@ body {
 
 .cardBox {
   position: relative;
-  width: 96%;
+  width: 88%;
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1025,12 +1029,13 @@ body {
 
 .details {
   position: relative;
-  width: 100%;
+  width: 95%;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   grid-gap: 30px;
+  overflow: hidden;
 }
 #dashboard,
 #blogs,
@@ -1166,6 +1171,7 @@ body {
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   background-color: var(--white);
   border-radius: 20px;
+  width: 450px;
 }
 .recentMessages .imgBx {
   position: relative;
@@ -1212,19 +1218,19 @@ body {
   flex-direction: column;
   padding: 0 2rem;
   padding-right: 4rem;
-  width: 95%;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   margin: 1rem;
 }
 .listBlogs {
   display: block;
-  width: 95%;
+  width: 85.5%;
   left: 2rem;
   padding: 1rem 2rem;
 }
 .listBlogs table {
-  width: 100%;
+  width: 97%;
 }
 .addBlog {
   width: 95%;
@@ -1439,7 +1445,7 @@ body {
 .sub-menu-wrap {
   position: absolute;
   top: 6%;
-  right: 0;
+  right: 9%;
   width: 320px;
   z-index: 1000;
   max-height: 0;
