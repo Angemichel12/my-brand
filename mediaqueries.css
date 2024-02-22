@@ -80,10 +80,13 @@
   }
   .recentMessages,
   .recentBlogs {
-    width: 85%;
+    width: 100%;
   }
   .sub-menu-wrap {
     top: 5%;
+  }
+  #admin-section-container {
+    width: 92%;
   }
 }
 @media (max-width: 991px) {

@@ -72,8 +72,19 @@
           </li>
         </ul>
       </div>
-      <!-- Main section -->
 
+      <!-- ====== Delete confirmation message ==== -->
+      <div class="modal">
+        <div class="modalContent">
+          <span class="close">×</span>
+          <img src="assets/danger.png" alt="" />
+          <p>Are you Sure?</p>
+          <p>Do you want to delete it?</p>
+          <button class="del" onclick="hideModal()">Delete Blog</button>
+          <button class="cancel" onclick="hideModal()">Cancel</button>
+        </div>
+      </div>
+      <!-- Main section -->
       <div class="main">
         <div class="topbar flex-space-between">
           <div class="toggle">
@@ -517,7 +528,7 @@
           </div>
           <!-- ============== projects section ============= -->
           <div id="projects" class="allRequestDiv blog-admin-container">
-            <div class="listBlogs">
+            <div class="listprojects">
               <div class="cardHeader">
                 <h2>all projects</h2>
                 <a href="#" class="view-all-btn" id="addprojectbtn"
@@ -599,10 +610,11 @@
                 </div>
               </div>
             </div>
-            <!-- add blog -->
-            <div class="addBlog">
+
+            <!-- add project -->
+            <div class="addProject">
               <div class="cardHeader">
-                <h2>add Blog</h2>
+                <h2>add Project</h2>
               </div>
               <div class="add-blog-container">
                 <div class="top-title-img">
@@ -622,20 +634,27 @@
                         type="text"
                         id="title"
                         name="title"
+                        min="10"
                         placeholder="title"
+                      />
+                      <label for="title">GitHub Link</label>
+                      <input
+                        type="url"
+                        id="title"
+                        name="github"
+                        placeholder="GitHub Link"
+                      />
+                      <label for="title">Live Demo Link</label>
+                      <input
+                        type="url"
+                        id="title"
+                        name="live demo"
+                        placeholder="Live Demo Link"
                       />
                     </form>
                   </div>
                 </div>
                 <!-- ===============Rich text editor================== -->
-                <div class="rich-text-container">
-                  <div id="editor">
-                    <p>Hello World!</p>
-                  </div>
-                  <p class="add-blog-btn">
-                    <a href="#" class="btn">Add Blog</a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>

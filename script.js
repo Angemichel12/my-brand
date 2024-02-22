@@ -84,6 +84,15 @@ addBlogBtn.addEventListener("click", () => {
   addBlog.style.display = "block";
 });
 
+// add projects
+const addprojectBtn = document.querySelector("#addprojectbtn");
+const listtProject = document.querySelector(".listprojects");
+const addProject = document.querySelector(".addProject");
+addprojectBtn.addEventListener("click", () => {
+  listtProject.style.display = "none";
+  addProject.style.display = "block";
+});
+
 // profile popup
 
 const profileAdmin = document.getElementById("prof-user-img");
@@ -91,3 +100,23 @@ const subMenuWrap = document.querySelector(".sub-menu-wrap");
 profileAdmin.addEventListener("click", () => {
   subMenuWrap.classList.toggle("open-menu");
 });
+
+// delete box
+
+var modal = document.querySelector(".modal");
+var deleteAction = document.querySelector(".delete-action");
+var span = document.querySelector(".close");
+deleteAction.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+span.addEventListener("click", () => {
+  hideModal();
+});
+function hideModal() {
+  modal.style.display = "none";
+}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    hideModal();
+  }
+};
