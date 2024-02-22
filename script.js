@@ -93,6 +93,17 @@ addprojectBtn.addEventListener("click", () => {
   addProject.style.display = "block";
 });
 
+// update blog
+const updateBtnAction = document.querySelector(".update-action");
+const updatetext = document.querySelector(".addBlog .cardHeader h2");
+const updateSubmitBtn = document.querySelector("#btnUpdate");
+updateBtnAction.addEventListener("click", () => {
+  listtBlogs.style.display = "none";
+  addBlog.style.display = "block";
+  updatetext.textContent = "Update blog";
+  updateSubmitBtn.textContent = "update";
+});
+
 // profile popup
 
 const profileAdmin = document.getElementById("prof-user-img");
