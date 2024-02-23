@@ -133,27 +133,25 @@ window.onclick = function (event) {
 };
 
 // login validation
+let errorlog;
 function validateForm() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
 
   if (username == null || username === "") {
-    alert("UserName can't be blank");
-    return false;
+    errorlog = "UserName can't be blank";
   } else if (password.length < 6) {
-    alert("Password must be at least 6 characters long.");
-    return false;
+    paragraph.textContent = "Password must be at least 6 characters long.";
   } else if (!validatePassword(password)) {
-    alert(
-      "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
-    );
-    return false;
+    errorlog =
+      "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
   } else if (username != "Michel" || password != "Admin@123") {
-    alert("Wrong username or password");
+    errorlog = "Wrong username or password";
   }
-  window.location.href = "admin-dashboard.html";
-  return true;
 }
+
+const errpar = document.getElementById("alert");
+errpar.textContent = errorlog;
 
 function validatePassword(password) {
   var regex =
@@ -162,17 +160,19 @@ function validatePassword(password) {
 }
 
 // addBlog Form validation
+var paragraph = document.getElementById("alert");
+let error = "";
 const addBlogFormValidation = () => {
   const addBlogTitle = document.getElementById("title").value;
   const addBlogRichText = document.getElementById("editor").textContent;
   if (addBlogTitle == null || addBlogTitle === "") {
-    alert("title can not be black!!");
+    paragraph.textContent = "title can not be black!!";
     return false;
   } else if (addBlogRichText == null || addBlogRichText === "") {
-    alert("Blog Description can't be Black!");
+    paragraph.textContent = "Blog Description can't be Black!";
     return false;
   } else {
-    alert("Blog is successfull Added!");
+    paragraph.textContent = "Blog is successfull Added!";
   }
 };
 

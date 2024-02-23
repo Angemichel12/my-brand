@@ -10,7 +10,7 @@
   <body id="login-body">
     <div class="center">
       <h1>Login</h1>
-      <form onsubmit="subvalidateForm()">
+      <form onsubmit="validateForm()">
         <div class="txt_field">
           <input type="text" id="username" required />
           <span></span>
@@ -23,7 +23,9 @@
         </div>
         <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login" class="login-sub-btn" />
-        <div class="signup_link">Not a member? <a href="#">Signup</a></div>
+        <div class="signup_link">
+          Not a member? <a href="admin-dashboard.html">Signup</a>
+        </div>
       </form>
     </div>
 

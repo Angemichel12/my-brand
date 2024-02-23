@@ -230,7 +230,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects">
+    <section id="projectssection">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <!-- <div class="experience-details-container"> -->
@@ -489,7 +489,7 @@
 
         <div class="contact-form">
           <h3 class="comment-title-text">Send a message</h3>
-          <form action="Post">
+          <form action="Post" onsubmit="subvalidateForm()">
             <input type="email" id="contactEmail" placeholder="Enter Email" />
             <label for="message" class="form-label">Message:</label>
             <textarea name="" id="message" rows="10"></textarea>
