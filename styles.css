@@ -609,6 +609,9 @@ footer {
   border-bottom: 2px solid #fff;
   color: #fff;
 }
+.footer-form input:focus {
+  outline: none;
+}
 .footer-form input::placeholder {
   color: #fff;
 }
@@ -798,6 +801,9 @@ form .txt_field {
 }
 
 /* Blogs-list page */
+#blogs_list {
+  padding-top: 17vh;
+}
 .search-box {
   display: flex;
   justify-content: space-between;
@@ -938,7 +944,7 @@ body {
   left: 80px;
 }
 .topbar {
-  width: 90%;
+  width: 100%;
   height: 60px;
   align-items: center;
   padding: 0 10px;
@@ -986,6 +992,7 @@ body {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  margin-right: 1rem;
 }
 .admin-user img {
   position: absolute;
@@ -1470,7 +1477,7 @@ body {
 .sub-menu-wrap {
   position: absolute;
   top: 6%;
-  right: 9%;
+  right: 0;
   width: 320px;
   z-index: 1000;
   max-height: 0;

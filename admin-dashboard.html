@@ -393,6 +393,8 @@
                         id="title"
                         name="title"
                         placeholder="title"
+                        required
+                        min="10"
                       />
                     </form>
                   </div>
@@ -400,10 +402,16 @@
                 <!-- ===============Rich text editor================== -->
                 <div class="rich-text-container">
                   <div id="editor">
-                    <p>Hello World!</p>
+                    <p></p>
                   </div>
                   <p class="add-blog-btn">
-                    <a href="#" class="btn" id="btnUpdate">Add Blog</a>
+                    <a
+                      href="#"
+                      class="btn"
+                      id="btnUpdate"
+                      onclick="addBlogFormValidation()"
+                      >Add Blog</a
+                    >
                   </p>
                 </div>
               </div>

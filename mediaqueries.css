@@ -88,6 +88,9 @@
   #admin-section-container {
     width: 92%;
   }
+  .search-box {
+    justify-content: space-around;
+  }
 }
 @media (max-width: 991px) {
   .navigation {
@@ -116,6 +119,9 @@
   }
   .sub-menu-wrap {
     top: 3%;
+  }
+  .search-box {
+    flex-direction: column-reverse;
   }
 }
 

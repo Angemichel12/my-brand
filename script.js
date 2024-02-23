@@ -132,20 +132,45 @@ window.onclick = function (event) {
   }
 };
 
-// loginFormValidation
+// login validation
 function validateForm() {
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
 
-  if (username.trim() == "") {
-    alert("Please enter your username");
+  if (username == null || username === "") {
+    alert("UserName can't be blank");
     return false;
-  }
-
-  if (password.trim() == "") {
-    alert("Please enter your password");
+  } else if (password.length < 6) {
+    alert("Password must be at least 6 characters long.");
     return false;
+  } else if (!validatePassword(password)) {
+    alert(
+      "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
+    );
+    return false;
+  } else if (username != "Michel" || password != "Admin@123") {
+    alert("Wrong username or password");
   }
-
   return true;
 }
+
+function validatePassword(password) {
+  var regex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  return regex.test(password);
+}
+
+// addBlog Form validation
+const addBlogFormValidation = () => {
+  const addBlogTitle = document.getElementById("title").value;
+  const addBlogRichText = document.getElementById("editor").textContent;
+  if (addBlogTitle == null || addBlogTitle === "") {
+    alert("title can not be black!!");
+    return false;
+  } else if (addBlogRichText == null || addBlogRichText === "") {
+    alert("Blog Description can't be Black!");
+    return false;
+  } else {
+    alert("Blog is successfull Added!");
+  }
+};
