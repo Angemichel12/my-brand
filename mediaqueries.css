@@ -123,6 +123,9 @@
   .search-box {
     flex-direction: column-reverse;
   }
+  .comment-description {
+    font-size: 0.6rem;
+  }
 }
 
 @media screen and (max-width: 600px) {

@@ -668,13 +668,20 @@ footer {
 }
 .single__blog-comment-container {
   align-items: center;
-  margin-left: 1rem;
+  padding: 0 2rem;
+  width: 100%;
+  background-color: #007acc;
+}
+.comment-item {
+  width: 100%;
 }
 .comment-info-head {
   margin: 1rem auto;
 }
 .comment-description {
   text-align: justify;
+  margin: 0 auto;
+  width: 100%;
 }
 .comment-sub-info {
   margin: 2rem 0 2rem;
