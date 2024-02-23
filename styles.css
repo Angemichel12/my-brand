@@ -546,8 +546,9 @@ article .icon {
   width: 100%;
   display: block;
   padding-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
+  margin-top: 1rem;
 }
 #message {
   display: block;
@@ -557,6 +558,22 @@ article .icon {
   margin-bottom: 2rem;
   width: 80%;
 }
+#contactEmail {
+  width: 80%;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid var(--black2);
+  display: block;
+  margin: 0 auto;
+}
+#contactEmail::placeholder {
+  font-size: 1rem;
+  color: #000;
+}
+#contactEmail:focus {
+  outline: none;
+}
+
 .contact-form span {
   display: block;
   width: 100%;
@@ -622,6 +639,9 @@ footer {
 }
 
 /* Single blog page */
+#blog-detail {
+  margin-top: 17vh;
+}
 .single__blog-img {
   width: 100%;
 }
@@ -668,9 +688,7 @@ footer {
 }
 .single__blog-comment-container {
   align-items: center;
-  padding: 0 2rem;
   width: 100%;
-  background-color: #007acc;
 }
 .comment-item {
   width: 100%;

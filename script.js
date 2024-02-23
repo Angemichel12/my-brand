@@ -151,6 +151,7 @@ function validateForm() {
   } else if (username != "Michel" || password != "Admin@123") {
     alert("Wrong username or password");
   }
+  window.location.href = "admin-dashboard.html";
   return true;
 }
 
@@ -174,3 +175,36 @@ const addBlogFormValidation = () => {
     alert("Blog is successfull Added!");
   }
 };
+
+// Subscribe form validation
+
+function subvalidateForm() {
+  var firstName = document.getElementById("subFirstName").value.trim();
+  var lastName = document.getElementById("subLastName").value.trim();
+  var email = document.getElementById("subEmail").value.trim();
+
+  // Check if first name is empty
+  if (firstName === "") {
+    alert("Please enter your first name.");
+    return false;
+  }
+
+  // Check if last name is empty
+  if (lastName === "") {
+    alert("Please enter your last name.");
+    return false;
+  }
+
+  // Check if email is empty
+  if (email === "") {
+    alert("Please enter your email address.");
+    return false;
+  }
+
+  // Check if email is valid
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+}

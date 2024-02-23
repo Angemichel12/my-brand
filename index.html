@@ -490,6 +490,7 @@
         <div class="contact-form">
           <h3 class="comment-title-text">Send a message</h3>
           <form action="Post">
+            <input type="email" id="contactEmail" placeholder="Enter Email" />
             <label for="message" class="form-label">Message:</label>
             <textarea name="" id="message" rows="10"></textarea>
             <span
@@ -524,10 +525,28 @@
 
           <div class="footer-form">
             <p>Subscribe to emails from Michel</p>
-            <form action="Post">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
-              <input type="email" placeholder="E-mail" />
+            <form action="POST" onsubmit="subvalidateForm();">
+              <input
+                type="text"
+                value=""
+                placeholder="First Name"
+                id="subFirstName"
+                required
+              />
+              <input
+                type="text"
+                value=""
+                placeholder="Last Name"
+                id="SubLastName"
+                required
+              />
+              <input
+                type="email"
+                value=""
+                placeholder="E-mail"
+                id="subEmail"
+                required
+              />
               <span
                 ><input type="submit" class="btn-submit" value="send"
               /></span>

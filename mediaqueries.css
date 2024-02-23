@@ -107,6 +107,9 @@
   .main.active {
     left: 300px;
   }
+  .single__blog-title {
+    font-size: 1.2rem;
+  }
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -125,6 +128,15 @@
   }
   .comment-description {
     font-size: 0.6rem;
+  }
+  .comment-title-text {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  label {
+    font-size: 1rem;
   }
 }
 
@@ -153,6 +165,13 @@
   }
   .login-container {
     width: 100%;
+  }
+  .single__blog-title {
+    font-size: 0.8rem;
+  }
+  .single__blog-info,
+  .blog-description {
+    font-size: 0.6rem;
   }
   .cardBox {
     grid-template-columns: repeat(1, 1fr);
@@ -217,5 +236,8 @@
   }
   .sub-menu-wrap {
     top: 3%;
+  }
+  .search-box .search {
+    width: 80%;
   }
 }
