@@ -16,7 +16,7 @@
           <li><a href="#experience">Experiences</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#blog">Blogs</a></li>
-          <li><a href="admin-dashboard.html">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="login-btn">
@@ -40,7 +40,7 @@
 
           <li><a href="#blog" onclick="toggleMenu();">Blogs</a></li>
           <li>
-            <a href="admin-dashboard.html" onclick="toggleMenu();">Contact</a>
+            <a href="#contact" onclick="toggleMenu();">Contact</a>
           </li>
         </div>
       </div>
@@ -489,12 +489,21 @@
 
         <div class="contact-form">
           <h3 class="comment-title-text">Send a message</h3>
-          <form action="Post" onsubmit="subvalidateForm()">
-            <input type="email" id="contactEmail" placeholder="Enter Email" />
+          <form name="contact-form">
+            <input
+              type="email"
+              name="email"
+              id="contactEmail"
+              placeholder="Enter Email"
+            />
             <label for="message" class="form-label">Message:</label>
-            <textarea name="" id="message" rows="10"></textarea>
+            <textarea name="message" id="message" rows="10"></textarea>
             <span
-              ><input type="submit" class="btn btn-color-2" value="send"
+              ><input
+                type="submit"
+                class="btn btn-color-2"
+                value="send"
+                id="add-contact-message"
             /></span>
           </form>
         </div>
@@ -558,5 +567,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="addToLocalStorage.js"></script>
   </body>
 </html>
