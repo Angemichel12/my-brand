@@ -1215,24 +1215,10 @@ body {
   border-radius: 20px;
   width: 520px;
 }
-.recentMessages .imgBx {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  overflow: hidden;
-}
-.recentMessages .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .recentMessages table tr:hover {
   background-color: var(--background-color);
-  color: var(--white);
+  color: var(--black1);
 }
 .recentMessages table tr td {
   padding: 12px 10px;
@@ -1244,7 +1230,7 @@ body {
 }
 .recentMessages table tr td span {
   font-size: 10px;
-  color: var(--text-color);
+  color: var(--background-color);
   line-height: 0;
 }
 

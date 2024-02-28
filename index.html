@@ -327,134 +327,7 @@
     <section id="blog">
       <p class="section__text__p1">Latest Blogs</p>
       <h1 class="title">Blogs</h1>
-      <div class="container flex-center flex-wrap">
-        <div class="card">
-          <div class="card-header">
-            <img
-              src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
-              alt="rover"
-            />
-          </div>
-          <div class="card-body flex-center flex-column">
-            <span class="tag tag-teal">Technology</span>
-            <h4>
-              <a href="detail.html" class="blog-link-detail"
-                >Why is the Tesla Cybertruck designed the way it is?</a
-              >
-            </h4>
-            <p>An exploration into the truck's polarising design</p>
-            <div class="card-info-section flex-space-between gap-2">
-              <div class="user">
-                <img
-                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                  alt="user"
-                />
-                <div class="user-info">
-                  <h5>John doe</h5>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-              <div class="like-comment">
-                <img
-                  src="assets/icons/icons8-heart-50 (1) 1.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-                <img
-                  src="assets/icons/icons8-comment-100.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <img
-              src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
-              alt="balloons"
-            />
-          </div>
-          <div class="card-body flex-center flex-column">
-            <span class="tag tag-purple">Popular</span>
-            <h4>
-              <a href="detail.html" class="blog-link-detail"
-                >How to Keep Going When You Don’t Know What’s Next</a
-              >
-            </h4>
-            <p>
-              The future can be scary, but there are ways to deal with that
-              fear.
-            </p>
-            <div class="card-info-section flex-space-between gap-2">
-              <div class="user">
-                <img
-                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                  alt="user"
-                />
-                <div class="user-info">
-                  <h5>John deo</h5>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-              <div class="like-comment">
-                <img
-                  src="assets/icons/icons8-heart-50 (1) 1.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-                <img
-                  src="assets/icons/icons8-comment-100.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <img
-              src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg"
-              alt="city"
-            />
-          </div>
-          <div class="card-body flex-center flex-column">
-            <span class="tag tag-pink">Design</span>
-            <h4>
-              <a href="detail.html" class="blog-link-detail"
-                >10 Rules of Dashboard Design</a
-              >
-            </h4>
-            <p>Dashboard Design Guidelines</p>
-            <div class="card-info-section flex-space-between gap-2">
-              <div class="user">
-                <img
-                  src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-                  alt="user"
-                />
-                <div class="user-info">
-                  <h5>John doe</h5>
-                  <small>Yesterday</small>
-                </div>
-              </div>
-              <div class="like-comment">
-                <img
-                  src="assets/icons/icons8-heart-50 (1) 1.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-                <img
-                  src="assets/icons/icons8-comment-100.png"
-                  alt=""
-                  class="blog-icon"
-                /><span>2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="container flex-center flex-wrap" id="blogContainer"></div>
       <h4 class="more-blogs-links flex-center">
         <a href="blogs-list.html">More Blogs</a>
       </h4>
@@ -488,6 +361,7 @@
         </div>
 
         <div class="contact-form">
+          <p id="contactError" style="text-align: center"></p>
           <h3 class="comment-title-text">Send a message</h3>
           <form name="contact-form">
             <input
@@ -500,11 +374,12 @@
             <textarea name="message" id="message" rows="10"></textarea>
             <span
               ><input
-                type="submit"
+                type="button"
                 class="btn btn-color-2"
                 value="send"
                 id="add-contact-message"
-            /></span>
+              />
+            </span>
           </form>
         </div>
       </div>
@@ -567,6 +442,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="addToLocalStorage.js"></script>
   </body>
 </html>

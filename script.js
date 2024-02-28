@@ -1,210 +1,91 @@
-function toggleMenu() {
-  const menu = document.querySelector(".menu-links");
-  const icon = document.querySelector(".hamburger-icon");
-  menu.classList.toggle("open");
-  icon.classList.toggle("open");
-}
+function displayBlogs() {
+  // Get the blogs from localStorage
+  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
-// add hovered class to selected list item
+  // Get only the last three blogs
+  const lastThreeBlogs = blogs.slice(Math.max(blogs.length - 3, 0));
 
-let list = document.querySelectorAll(".navigation li");
+  // Get the container where the blogs will be appended
+  const blogContainer = document.getElementById("blogContainer");
 
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
+  // Iterate over the last three blogs and create the HTML for each blog
+  lastThreeBlogs.forEach((blog, index) => {
+    const blogCard = `
+      <div class="card">
+        <div class="card-header">
+          <img src="./assets/upload/${blog.poster}" alt="blog poster" />
+        </div>
+        <div class="card-body flex-center flex-column">
+          <span class="tag tag-teal">Technology</span>
+          <h4>
+            <a href="detail.html?index=${index + 1}" class="blog-link-detail">${
+      blog.title
+    }</a>
+          </h4>
+          <p>${blog.content}</p>
+          <div class="card-info-section flex-space-between gap-2">
+            <div class="user">
+              <img src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo" alt="user" />
+              <div class="user-info">
+                <h5>John doe</h5>
+                <small>${blog.date}</small>
+              </div>
+            </div>
+            <div class="like-comment">
+              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${
+                blog.likes
+              }</span>
+              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${
+                blog.comments.length
+              }</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Append the blog card to the container
+    blogContainer.innerHTML += blogCard;
   });
-  this.classList.add("hovered");
-}
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-// Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
-
-toggle.onclick = function () {
-  navigation.classList.toggle("active");
-  main.classList.toggle("active");
-};
-let allbuttons = document.querySelectorAll(".navigation ul li");
-let alldivision = document.querySelectorAll(".allRequestDiv");
-
-// by default allproduct division must be displayed
-alldivision[0].style.display = "flex";
-
-for (let i = 0; i < allbuttons.length; i++) {
-  allbuttons[i].addEventListener("click", () => {
-    for (let k = 0; k < alldivision.length; k++) {
-      alldivision[k].style.display = "none"; // hide all divisions
-    }
-    let sectionId = allbuttons[i]
-      .querySelector("span.admin-title")
-      .innerText.toLowerCase();
-    let section = document.getElementById(sectionId);
-    if (section) {
-      section.style.display = "flex"; // show the corresponding division if it exists
-    }
-  });
 }
 
-// upload image
-const selectImage = document.querySelector(".select-image");
-const inputFile = document.querySelector("#file");
-const imgArea = document.querySelector(".img-area");
+// Call the function when the page loads
+window.onload = displayBlogs;
 
-selectImage.addEventListener("click", function () {
-  inputFile.click();
-});
-
-inputFile.addEventListener("change", function () {
-  const image = this.files[0];
-  if (image.size < 2000000) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const allImg = imgArea.querySelectorAll("img");
-      allImg.forEach((item) => item.remove());
-      const imgUrl = reader.result;
-      const img = document.createElement("img");
-      img.src = imgUrl;
-      imgArea.appendChild(img);
-      imgArea.classList.add("active");
-      imgArea.dataset.img = image.name;
-    };
-    reader.readAsDataURL(image);
-  } else {
-    alert("Image size more than 2MB");
-  }
-});
-
-const addBlogBtn = document.querySelector("#addblogbtn");
-const listtBlogs = document.querySelector(".listBlogs");
-const addBlog = document.querySelector(".addBlog");
-addBlogBtn.addEventListener("click", () => {
-  listtBlogs.style.display = "none";
-  addBlog.style.display = "block";
-});
-
-// add projects
-const addprojectBtn = document.querySelector("#addprojectbtn");
-const listtProject = document.querySelector(".listprojects");
-const addProject = document.querySelector(".addProject");
-addprojectBtn.addEventListener("click", () => {
-  listtProject.style.display = "none";
-  addProject.style.display = "block";
-});
-
-// update blog
-const updateBtnAction = document.querySelector(".update-action");
-const updatetext = document.querySelector(".addBlog .cardHeader h2");
-const updateSubmitBtn = document.querySelector("#btnUpdate");
-updateBtnAction.addEventListener("click", () => {
-  listtBlogs.style.display = "none";
-  addBlog.style.display = "block";
-  updatetext.textContent = "Update blog";
-  updateSubmitBtn.textContent = "update";
-});
-
-// profile popup
-
-const profileAdmin = document.getElementById("prof-user-img");
-const subMenuWrap = document.querySelector(".sub-menu-wrap");
-profileAdmin.addEventListener("click", () => {
-  subMenuWrap.classList.toggle("open-menu");
-});
-
-// delete box
-
-var modal = document.querySelector(".modal");
-var deleteAction = document.querySelector(".delete-action");
-var span = document.querySelector(".close");
-deleteAction.addEventListener("click", () => {
-  modal.style.display = "block";
-});
-span.addEventListener("click", () => {
-  hideModal();
-});
-function hideModal() {
-  modal.style.display = "none";
-}
-window.onclick = function (event) {
-  if (event.target == modal) {
-    hideModal();
-  }
-};
-
-// login validation
-let errorlog;
-function validateForm() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-
-  if (username == null || username === "") {
-    errorlog = "UserName can't be blank";
-  } else if (password.length < 6) {
-    paragraph.textContent = "Password must be at least 6 characters long.";
-  } else if (!validatePassword(password)) {
-    errorlog =
-      "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
-  } else if (username != "Michel" || password != "Admin@123") {
-    errorlog = "Wrong username or password";
-  }
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
 }
 
-const errpar = document.getElementById("alert");
-errpar.textContent = errorlog;
+// Retrieve index of the clicked blog from URL query parameter
+const blogIndex = getQueryParam("index");
 
-function validatePassword(password) {
-  var regex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-  return regex.test(password);
+// Retrieve blogs from localStorage
+const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+
+// Function to display detailed information of the clicked blog
+function displayBlogDetail() {
+  const blogDetail = document.getElementById("blog-detail");
+  blogDetail.innerHTML = "";
+
+  const blog = blogs[blogIndex];
+
+  const blogDetailItem = document.createElement("div");
+  blogDetailItem.innerHTML = `
+      <div>
+      <h1 class="single__blog-title blog-p-y blog-bold">${blog.title}</h1>
+      <p class="single__blog-info blog-p-y">
+        By <span class="blog-bold">Michel</span> | February/ 12/ 2024 . 4 min
+        read
+      </p>
+      <div class="single__blog-img">
+        <img src="assets/upload/${blog.poster}" alt="blog1 image" class="blog-p-y" />
+      </div>
+      <p class="blog-description blog-p-y">${blog.content}</p>
+      </div>
+  `;
+  blogDetail.appendChild(blogDetailItem);
 }
 
-// addBlog Form validation
-var paragraph = document.getElementById("alert");
-let error = "";
-const addBlogFormValidation = () => {
-  const addBlogTitle = document.getElementById("title").value;
-  const addBlogRichText = document.getElementById("editor").textContent;
-  if (addBlogTitle == null || addBlogTitle === "") {
-    paragraph.textContent = "title can not be black!!";
-    return false;
-  } else if (addBlogRichText == null || addBlogRichText === "") {
-    paragraph.textContent = "Blog Description can't be Black!";
-    return false;
-  } else {
-    paragraph.textContent = "Blog is successfull Added!";
-  }
-};
-
-// Subscribe form validation
-
-function subvalidateForm() {
-  var firstName = document.getElementById("subFirstName").value.trim();
-  var lastName = document.getElementById("subLastName").value.trim();
-  var email = document.getElementById("subEmail").value.trim();
-
-  // Check if first name is empty
-  if (firstName === "") {
-    alert("Please enter your first name.");
-    return false;
-  }
-
-  // Check if last name is empty
-  if (lastName === "") {
-    alert("Please enter your last name.");
-    return false;
-  }
-
-  // Check if email is empty
-  if (email === "") {
-    alert("Please enter your email address.");
-    return false;
-  }
-
-  // Check if email is valid
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
-    return false;
-  }
-}
+// Call displayBlogDetail function to display detailed information of the clicked blog
+displayBlogDetail();
