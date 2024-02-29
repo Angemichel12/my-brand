@@ -113,12 +113,6 @@ window.onclick = function (event) {
   }
 };
 
-function validatePassword(password) {
-  var regex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-  return regex.test(password);
-}
-
 const showQueries = () => {
   var queriesList;
   if (localStorage.getItem("queriesList") == null) {
@@ -166,42 +160,70 @@ const deleteComment = (index) => {
   showQueries();
 };
 
-//save blog function
-const saveNewBlog = () => {
-  // get blogs from local storage
-  let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+const blogAddFormValidation = () => {
   const form = document.forms["add-blog-form"];
-
-  //get form values
   const title = form["title"].value;
-  const poster =
-    document.querySelector("#file").files.length > 0
-      ? document.querySelector("#file").files[0].name
-      : null;
   const content = document.querySelector("#editor p").textContent;
 
-  //add new blog to blogs array
-  const newBlog = {
-    id: blogs.length + 1,
-    title: title,
-    poster: poster,
-    content: content,
-    date: new Date().toLocaleDateString("en-US", {
-      month: "long",
-      day: "2-digit",
-      year: "numeric",
-    }),
-    comments: [],
-    views: 0,
-    likes: 0,
-    isLiked: false,
-    isViewed: false,
-  };
+  if (title == "") {
+    return "Title can't be blank!";
+  }
+  if (content == "") {
+    return "Content can't be blank!";
+  }
+  return true;
+};
 
-  blogs.push(newBlog);
+//save blog function
+const saveNewBlog = () => {
+  const validationResult = blogAddFormValidation();
+  const addBlogError = document.getElementById("addBlogError");
 
-  //update localStorage blogs
-  localStorage.setItem("blogs", JSON.stringify(blogs));
+  if (validationResult === true) {
+    // get blogs from local storage
+    let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    const form = document.forms["add-blog-form"];
+
+    //get form values
+    const title = form["title"].value;
+    const poster =
+      document.querySelector("#file").files.length > 0
+        ? document.querySelector("#file").files[0].name
+        : null;
+    const content = document.querySelector("#editor p").textContent;
+
+    //add new blog to blogs array
+    const newBlog = {
+      id: blogs.length + 1,
+      title: title,
+      poster: poster,
+      content: content,
+      date: new Date().toLocaleDateString("en-US", {
+        month: "long",
+        day: "2-digit",
+        year: "numeric",
+      }),
+      comments: [],
+      views: 0,
+      likes: 0,
+      isLiked: false,
+      isViewed: false,
+    };
+
+    blogs.push(newBlog);
+
+    //update localStorage blogs
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+    form["title"].value = "";
+    document.querySelector("#editor p").textContent = "";
+    addBlogError.textContent = "Blog added successfully!";
+    addBlogError.style.backgroundColor = "green";
+    addBlogError.style.display = "block";
+  } else {
+    addBlogError.textContent = validationResult;
+    addBlogError.style.backgroundColor = "red";
+    addBlogError.style.display = "block";
+  }
 };
 
 const saveBlogButton = document.getElementById("btnUpdate");

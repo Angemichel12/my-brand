@@ -1,3 +1,51 @@
+// contact form validation
+function contactFormValidation() {
+  const contactEmail = document.getElementById("contactEmail").value;
+  const contactMessage = document.getElementById("message").value;
+  if (contactEmail == "") {
+    return "E-mail Can't be blank!";
+  }
+  if (!contactEmail.includes("@")) {
+    return "Invalid Email!";
+  }
+  if (contactMessage == "") {
+    return "Message Can't be blank!";
+  }
+  return true;
+}
+
+// add contact
+var addContactMessage = document.getElementById("add-contact-message");
+var contactError = document.getElementById("contactError");
+
+addContactMessage.addEventListener("click", () => {
+  var validationResult = contactFormValidation();
+  if (validationResult === true) {
+    let contactEmail = document.getElementById("contactEmail");
+    let contactMessage = document.getElementById("message");
+    var queriesList;
+    if (localStorage.getItem("queriesList") == null) {
+      queriesList = [];
+    } else {
+      queriesList = JSON.parse(localStorage.getItem("queriesList"));
+    }
+    queriesList.push({
+      email: contactEmail.value,
+      message: contactMessage.value,
+    });
+    localStorage.setItem("queriesList", JSON.stringify(queriesList));
+    contactEmail.value = "";
+    contactMessage.value = "";
+    contactError.textContent = "Form submitted successfully!";
+    contactError.style.backgroundColor = "green";
+    contactError.style.display = "block";
+  } else {
+    contactError.textContent = validationResult;
+    contactError.style.backgroundColor = "red";
+    contactError.style.display = "block";
+  }
+});
+
 function displayBlogs() {
   // Get the blogs from localStorage
   const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
@@ -18,9 +66,7 @@ function displayBlogs() {
         <div class="card-body flex-center flex-column">
           <span class="tag tag-teal">Technology</span>
           <h4>
-            <a href="detail.html?index=${index + 1}" class="blog-link-detail">${
-      blog.title
-    }</a>
+            <a href="detail.html?index=${index}" class="blog-link-detail">${blog.title}</a>
           </h4>
           <p>${blog.content}</p>
           <div class="card-info-section flex-space-between gap-2">
@@ -32,12 +78,8 @@ function displayBlogs() {
               </div>
             </div>
             <div class="like-comment">
-              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${
-                blog.likes
-              }</span>
-              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${
-                blog.comments.length
-              }</span>
+              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${blog.likes}</span>
+              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${blog.comments.length}</span>
             </div>
           </div>
         </div>
@@ -51,41 +93,3 @@ function displayBlogs() {
 
 // Call the function when the page loads
 window.onload = displayBlogs;
-
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
-
-// Retrieve index of the clicked blog from URL query parameter
-const blogIndex = getQueryParam("index");
-
-// Retrieve blogs from localStorage
-const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
-
-// Function to display detailed information of the clicked blog
-function displayBlogDetail() {
-  const blogDetail = document.getElementById("blog-detail");
-  blogDetail.innerHTML = "";
-
-  const blog = blogs[blogIndex];
-
-  const blogDetailItem = document.createElement("div");
-  blogDetailItem.innerHTML = `
-      <div>
-      <h1 class="single__blog-title blog-p-y blog-bold">${blog.title}</h1>
-      <p class="single__blog-info blog-p-y">
-        By <span class="blog-bold">Michel</span> | February/ 12/ 2024 . 4 min
-        read
-      </p>
-      <div class="single__blog-img">
-        <img src="assets/upload/${blog.poster}" alt="blog1 image" class="blog-p-y" />
-      </div>
-      <p class="blog-description blog-p-y">${blog.content}</p>
-      </div>
-  `;
-  blogDetail.appendChild(blogDetailItem);
-}
-
-// Call displayBlogDetail function to display detailed information of the clicked blog
-displayBlogDetail();
