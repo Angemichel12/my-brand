@@ -134,18 +134,6 @@ const showQueries = () => {
   </td>`;
     html += "</tr>";
   });
-  var html2 = "";
-  queriesList.forEach(function (element, index) {
-    html2 += "<tr>";
-    html2 += "<td>";
-    html2 += "<h4>";
-    html2 += "John Doe";
-    html2 += "<br/>";
-    html2 += "<span>" + "Hello" + "</span>";
-    html2 += "</h4>";
-    html2 += "</td>";
-    html2 += "</tr>";
-  });
 
   document.querySelector("#adminContactList tbody").innerHTML = html;
 };
