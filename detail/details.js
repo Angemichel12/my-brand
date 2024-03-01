@@ -26,7 +26,7 @@ function displayBlogDetail() {
         read
       </p>
       <div class="single__blog-img">
-        <img src="assets/upload/${blog.poster}" alt="blog1 image" class="blog-p-y" />
+        <img src="../assets/upload/${blog.poster}" alt="blog1 image" class="blog-p-y" />
       </div>
       <p class="blog-description blog-p-y">${blog.content}</p>
       </div>

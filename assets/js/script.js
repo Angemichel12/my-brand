@@ -66,9 +66,11 @@ function displayBlogs() {
         <div class="card-body flex-center flex-column">
           <span class="tag tag-teal">Technology</span>
           <h4>
-            <a href="detail.html?index=${index}" class="blog-link-detail">${blog.title}</a>
+            <a href="./detail/detail.html?index=${index}" class="blog-link-detail">${
+      blog.title
+    }</a>
           </h4>
-          <p>${blog.content}</p>
+          <p>${blog.content.split(" ").slice(0, 20).join(" ")}</p>
           <div class="card-info-section flex-space-between gap-2">
             <div class="user">
               <img src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo" alt="user" />
@@ -78,8 +80,12 @@ function displayBlogs() {
               </div>
             </div>
             <div class="like-comment">
-              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${blog.likes}</span>
-              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${blog.comments.length}</span>
+              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${
+                blog.likes
+              }</span>
+              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${
+                blog.comments.length
+              }</span>
             </div>
           </div>
         </div>
