@@ -32,8 +32,8 @@ function displayBlogDetail() {
       </div>
   `;
   blog.comments.forEach((commentObj) => {
-    const commentElement = document.createElement("p");
-    commentElement.textContent = `${commentObj.fullname}: ${commentObj.comment}`;
+    const commentElement = document.createElement("div");
+    commentElement.innerHTML = `<p class="detail-fullname">${commentObj.fullname}:</p> <p class="detail-comment">${commentObj.comment}</p>`;
     commentList.appendChild(commentElement);
   });
   blogDetail.appendChild(blogDetailItem);
