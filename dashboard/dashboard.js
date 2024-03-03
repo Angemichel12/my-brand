@@ -74,17 +74,6 @@ addprojectBtn.addEventListener("click", () => {
   addProject.style.display = "block";
 });
 
-// update blog
-const updateBtnAction = document.querySelector(".update-action");
-const updatetext = document.querySelector(".addBlog .cardHeader h2");
-const updateSubmitBtn = document.querySelector("#btnUpdate");
-updateBtnAction.addEventListener("click", () => {
-  listtBlogs.style.display = "none";
-  addBlog.style.display = "block";
-  updatetext.textContent = "Update blog";
-  updateSubmitBtn.textContent = "update";
-});
-
 // profile popup
 
 const profileAdmin = document.getElementById("prof-user-img");
@@ -178,7 +167,7 @@ const saveNewBlog = () => {
       document.querySelector("#file").files.length > 0
         ? document.querySelector("#file").files[0].name
         : null;
-    const content = document.querySelector("#editor p").textContent;
+    const content = document.querySelector("#editor").innerHTML; // Changed this line
 
     //add new blog to blogs array
     const newBlog = {
@@ -195,7 +184,7 @@ const saveNewBlog = () => {
       views: 0,
       likes: 0,
       isLiked: false,
-      isViewed: false,
+      isActive: false,
     };
 
     blogs.push(newBlog);
@@ -203,7 +192,7 @@ const saveNewBlog = () => {
     //update localStorage blogs
     localStorage.setItem("blogs", JSON.stringify(blogs));
     form["title"].value = "";
-    document.querySelector("#editor p").textContent = "";
+    document.querySelector("#editor").innerHTML = ""; // Changed this line
     addBlogError.textContent = "Blog added successfully!";
     addBlogError.style.backgroundColor = "green";
     addBlogError.style.display = "block";
@@ -214,5 +203,43 @@ const saveNewBlog = () => {
   }
 };
 
-const saveBlogButton = document.getElementById("btnUpdate");
+const saveBlogButton = document.getElementById("addBlogBtn");
 saveBlogButton.addEventListener("click", saveNewBlog);
+
+const dashboardDisplayBlogs = () => {
+  const table = document.querySelector(".listBlogs table tbody");
+  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+  let html = "";
+  blogs.forEach((element, index) => {
+    html += "<tr>";
+    html += "<td>" + element.date + "</td>";
+    html += "<td>" + element.title + "</td>";
+    if (element.isActive) {
+      html += "<td>" + "Active" + "</td>";
+    } else {
+      html += "<td>" + "Pending" + "</td>";
+    }
+    html += `<td class='actions'> 
+      <span class='update-action'> 
+      <ion-icon name='sync-circle-outline' onclick='updateBlog(${index})'> 
+      </ion-icon> 
+      </span> 
+      <span class='delete-action'> 
+      <ion-icon name='trash-outline' onclick='deleteBlog(${index})'> 
+      </ion-icon> 
+      </span> 
+      </td>`;
+    html += "</tr>";
+  });
+  table.innerHTML = html;
+};
+window.onload = dashboardDisplayBlogs;
+
+// delete Blog
+
+const deleteBlog = (index) => {
+  const blogs = JSON.parse(localStorage.getItem("blogs"));
+  blogs.splice(index, 1);
+  localStorage.setItem("blogs", JSON.stringify(blogs));
+  dashboardDisplayBlogs();
+};
