@@ -1,3 +1,10 @@
+function toggleMenu() {
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
+  menu.classList.toggle("open");
+  icon.classList.toggle("open");
+}
+
 // contact form validation
 function contactFormValidation() {
   const contactEmail = document.getElementById("contactEmail").value;

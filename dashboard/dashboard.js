@@ -96,18 +96,31 @@ const showQueries = () => {
     html += "<td>" + element.email + "</td>";
     html += "<td>" + element.message + "</td>";
     html += `<td class="msgActions">
-    <span class="update-action"
-      onclick="updateComment(${index})"><ion-icon name="sync-circle-outline"></ion-icon></span
-    ><span class="delete-action" onclick="deleteComment(${index})"
+    <span class="delete-action" onclick="deleteComment(${index})"
       ><ion-icon name="trash-outline"></ion-icon
     ></span>
   </td>`;
     html += "</tr>";
   });
 
-  document.querySelector("#adminContactList tbody").innerHTML = html;
-};
+  var html2 = "";
+  queriesList.forEach((element) => {
+    html2 += `<tr>
+    <td>
+      <h4>
+        ${element.email} <br />
+        <span
+          >${element.message}
+        </span>
+      </h4>
+    </td>
+  </tr>`;
+  });
 
+  document.querySelector("#adminContactList tbody").innerHTML = html;
+  document.querySelector("#recentMessageTopTable").innerHTML = html2;
+};
+showQueries();
 window.onload = showQueries; // Assigning the function directly to window.onload
 
 // delete comment
@@ -189,8 +202,10 @@ saveBlogButton.addEventListener("click", saveNewBlog);
 
 const dashboardDisplayBlogs = () => {
   const table = document.querySelector(".listBlogs table tbody");
+  const recentTeble = document.querySelector("#dashboardRecentBlog tbody");
   const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
   let html = "";
+  let html2 = "";
   blogs.forEach((element, index) => {
     html += "<tr>";
     html += "<td>" + element.date + "</td>";
@@ -212,7 +227,25 @@ const dashboardDisplayBlogs = () => {
       </td>`;
     html += "</tr>";
   });
+  blogs.forEach((element) => {
+    html2 += "<tr>";
+    html2 += "<td>" + element.date + "</td>";
+    html2 += "<td>" + element.title + "</td>";
+    if (element.isActive) {
+      html2 += "<td>";
+      html2 += `<span class="status active"> active </span>`;
+
+      html2 += "</td>";
+    } else {
+      html2 += "<td>";
+      html2 += `<span class="status panding"> Pending </span>`;
+
+      html2 += "</td>";
+    }
+    html += "</tr>";
+  });
   table.innerHTML = html;
+  recentTeble.innerHTML = html2;
 };
 window.onload = dashboardDisplayBlogs;
 

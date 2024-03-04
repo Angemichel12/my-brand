@@ -76,6 +76,7 @@ document
     // Update the blog detail on the page
     displayBlogDetail();
   });
+displayBlogDetail();
 
 // Call displayBlogDetail function to display detailed information of the clicked blog
 window.onload = displayBlogDetail;
