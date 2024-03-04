@@ -82,26 +82,6 @@ profileAdmin.addEventListener("click", () => {
   subMenuWrap.classList.toggle("open-menu");
 });
 
-// delete box
-
-var modal = document.querySelector(".modal");
-var deleteAction = document.querySelector(".delete-action");
-var span = document.querySelector(".close");
-deleteAction.addEventListener("click", () => {
-  modal.style.display = "block";
-});
-span.addEventListener("click", () => {
-  hideModal();
-});
-function hideModal() {
-  modal.style.display = "none";
-}
-window.onclick = function (event) {
-  if (event.target == modal) {
-    hideModal();
-  }
-};
-
 const showQueries = () => {
   var queriesList;
   if (localStorage.getItem("queriesList") == null) {
@@ -236,10 +216,32 @@ const dashboardDisplayBlogs = () => {
 window.onload = dashboardDisplayBlogs;
 
 // delete Blog
-
+let currentDeleteIndex = 0;
 const deleteBlog = (index) => {
+  modal.style.display = "block";
+  currentDeleteIndex = index;
+};
+
+// delete box
+
+var modal = document.querySelector(".modal");
+var deleteAction = document.querySelector(".del");
+var span = document.querySelector(".close");
+deleteAction.addEventListener("click", () => {
   const blogs = JSON.parse(localStorage.getItem("blogs"));
-  blogs.splice(index, 1);
+  blogs.splice(currentDeleteIndex, 1);
   localStorage.setItem("blogs", JSON.stringify(blogs));
   dashboardDisplayBlogs();
+});
+
+span.addEventListener("click", () => {
+  hideModal();
+});
+function hideModal() {
+  modal.style.display = "none";
+}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    hideModal();
+  }
 };
