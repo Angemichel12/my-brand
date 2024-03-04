@@ -59,6 +59,7 @@ inputFile.addEventListener("change", function () {
 
 const addBlogBtn = document.querySelector("#addblogbtn");
 const listtBlogs = document.querySelector(".listBlogs");
+
 const addBlog = document.querySelector(".addBlog");
 addBlogBtn.addEventListener("click", () => {
   listtBlogs.style.display = "none";
@@ -130,11 +131,10 @@ const blogAddFormValidation = () => {
   }
   return true;
 };
-
+const addBlogError = document.getElementById("addBlogError");
 //save blog function
 const saveNewBlog = () => {
   const validationResult = blogAddFormValidation();
-  const addBlogError = document.getElementById("addBlogError");
 
   if (validationResult === true) {
     // get blogs from local storage
@@ -184,6 +184,7 @@ const saveNewBlog = () => {
 };
 
 const saveBlogButton = document.getElementById("addBlogBtn");
+
 saveBlogButton.addEventListener("click", saveNewBlog);
 
 const dashboardDisplayBlogs = () => {
@@ -245,3 +246,46 @@ window.onclick = function (event) {
     hideModal();
   }
 };
+
+// update blog
+const textToChange = document.getElementById("textToChange");
+const updateButton = document.getElementById("updateBlogBtn");
+document.getElementById("addBlogBtn");
+const title = document.getElementById("title");
+const content = document.getElementById("editor");
+let currentUpdateIndex = 0;
+const blogs = JSON.parse(localStorage.getItem("blogs"));
+
+const updateBlog = (index) => {
+  listtBlogs.style.display = "none";
+  textToChange.textContent = "Update Blog";
+  addBlog.style.display = "block";
+  addBlogBtn.textContent = "update";
+  saveBlogButton.style.display = "none";
+  updateButton.style.display = "inline";
+  title.value = blogs[index].title;
+  content.innerHTML = blogs[index].content;
+  currentUpdateIndex = index;
+  console.log(index);
+};
+updateButton.addEventListener("click", () => {
+  if (blogAddFormValidation() == true) {
+    blogs[currentUpdateIndex].title = title.value;
+    blogs[currentUpdateIndex].content = content.innerHTML;
+    blogs[currentUpdateIndex].date = new Date().toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+    addBlogError.textContent = "Blog update successfully!";
+    addBlogError.style.backgroundColor = "green";
+    addBlogError.style.display = "block";
+    title.value = "";
+    content.innerHTML = "";
+  } else {
+    addBlogError.textContent = blogAddFormValidation();
+    addBlogError.style.backgroundColor = "red";
+    addBlogError.style.display = "block";
+  }
+});

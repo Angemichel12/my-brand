@@ -573,6 +573,12 @@ body {
   text-align: center;
   font-weight: 600;
 }
+#addBlogBtn {
+  display: inline;
+}
+#updateBlogBtn {
+  display: none;
+}
 
 /* =============== Messages section=========== */
 .allMessages {
