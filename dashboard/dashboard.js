@@ -289,3 +289,9 @@ updateButton.addEventListener("click", () => {
     addBlogError.style.display = "block";
   }
 });
+
+const totalNumberOfArticles = () => {
+  const articles = document.querySelector("#articlesNumber");
+  articles.textContent = blogs.length;
+};
+totalNumberOfArticles();
