@@ -53,40 +53,53 @@ addContactMessage.addEventListener("click", () => {
   }
 });
 
-function displayBlogs() {
-  // Get the blogs from localStorage
-  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+const displayBlogs = async () => {
+  // Fetch the blogs from the API
+  const response = await fetch(
+    "https://mybrand-restapi.onrender.com/api/v1/blogs/"
+  );
+  const blogs = await response.json();
+  const blogsData = blogs.data;
 
   // Get only the last three blogs
-  const lastThreeBlogs = blogs.slice(Math.max(blogs.length - 3, 0));
+  const lastThreeBlogs = blogsData.slice(Math.max(blogs.length - 3, 0));
 
   // Get the container where the blogs will be appended
   const blogContainer = document.getElementById("blogContainer");
 
   // Iterate over the last three blogs and create the HTML for each blog
   lastThreeBlogs.forEach((blog, index) => {
+    const date = new Date(blog.updatedAt);
+    const formattedDate = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
     const blogCard = `
       <div class="card">
         <div class="card-header">
-          <img src="./assets/upload/${blog.poster}" alt="blog poster" />
+          <img src="${blog.image}" alt="blog poster" />
         </div>
         <div class="card-body flex-center flex-column">
           <span class="tag tag-teal">Technology</span>
           <h4>
-            <a href="./detail/detail.html?index=${index}" class="blog-link-detail">${blog.title}</a>
+            <a href="./detail/detail.html?index=${
+              blog._id
+            }" class="blog-link-detail">${blog.title}</a>
           </h4>
-          <div>${blog.content}</div> <!-- Changed this line -->
+          <div>${blog.content.split(" ").slice(0, 20).join(" ")}</div>
           <div class="card-info-section flex-space-between gap-2">
             <div class="user">
-              <img src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo" alt="user" />
               <div class="user-info">
-                <h5>John doe</h5>
-                <small>${blog.date}</small>
+                <h5>${blog.author.name}</h5>
+                <small>${formattedDate}</small>
               </div>
             </div>
             <div class="like-comment">
-              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${blog.likes}</span>
-              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${blog.comments.length}</span>
+              <img src="assets/icons/icons8-heart-50 (1) 1.png" alt="" class="blog-icon" /><span>${
+                blog.likes
+              }</span>
+              <img src="assets/icons/icons8-comment-100.png" alt="" class="blog-icon" /><span>${
+                blog.comments.length
+              }</span>
             </div>
           </div>
         </div>
@@ -96,7 +109,7 @@ function displayBlogs() {
     // Append the blog card to the container
     blogContainer.innerHTML += blogCard;
   });
-}
+};
 
 // Call the function when the page loads
 window.onload = displayBlogs;

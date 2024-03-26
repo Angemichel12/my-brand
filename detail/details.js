@@ -10,12 +10,16 @@ const blogIndex = getQueryParam("index");
 const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
 
 // Function to display detailed information of the clicked blog
-function displayBlogDetail() {
+const displayBlogDetail = async () => {
   const blogDetail = document.getElementById("blog-div-detail");
   blogDetail.innerHTML = "";
   const commentList = document.getElementById("commentsList");
 
-  const blog = blogs[blogIndex];
+  const res = await fetch(
+    `https://mybrand-restapi.onrender.com/api/v1/blogs/${blogIndex}`
+  );
+  const blog = await res.json();
+  console.log(blog);
 
   if (!blog) {
     console.error("Blog not found");
@@ -27,22 +31,22 @@ function displayBlogDetail() {
       <div>
       <h1 class="single__blog-title blog-p-y blog-bold">${blog.title}</h1>
       <p class="single__blog-info blog-p-y">
-        By <span class="blog-bold">Michel</span> | ${blog.date} . 4 min
+        By <span class="blog-bold">Michel</span> | ${blog.updatedAt} . 4 min
         read
       </p>
       <div class="single__blog-img">
-        <img src="../assets/upload/${blog.poster}" alt="blog1 image" class="blog-p-y" />
+        <img src="${blog.image}" alt="blog1 image" class="blog-p-y" />
       </div>
       <div class="blog-description blog-p-y">${blog.content}</div>
       </div>
   `;
   blog.comments.forEach((commentObj) => {
     const commentElement = document.createElement("div");
-    commentElement.innerHTML = `<p class="detail-fullname">${commentObj.fullname}:</p> <p class="detail-comment">${commentObj.comment}</p>`;
+    commentElement.innerHTML = `<p class="detail-fullname">${commentObj[0]}:</p> <p class="detail-comment">${commentObj.comment}</p>`;
     commentList.appendChild(commentElement);
   });
   blogDetail.appendChild(blogDetailItem);
-}
+};
 
 document
   .getElementById("comment-form")
@@ -77,6 +81,3 @@ document
     displayBlogDetail();
   });
 displayBlogDetail();
-
-// Call displayBlogDetail function to display detailed information of the clicked blog
-window.onload = displayBlogDetail;
