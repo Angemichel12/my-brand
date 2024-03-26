@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logi in page</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/mediaqueries.css" />
+
+    <link rel="stylesheet" href="login.css" />
   </head>
   <body id="login-body">
+    <p id="login-alert">login alert!</p>
     <div class="center">
       <h1>Login</h1>
-      <form onsubmit="validateForm()">
+      <form id="login-form">
         <div class="txt_field">
           <input type="text" id="username" required />
           <span></span>
@@ -22,13 +25,13 @@
           <label>Password</label>
         </div>
         <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login" class="login-sub-btn" />
+        <button type="submit" class="login-sub-btn">Login</button>
         <div class="signup_link">
-          Not a member? <a href="admin-dashboard.html">Signup</a>
+          Not a member? <a href="../dashboard/dashboard.html">Signup</a>
         </div>
       </form>
     </div>
 
-    <script src="script.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>

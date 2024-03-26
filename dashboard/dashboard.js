@@ -59,6 +59,7 @@ inputFile.addEventListener("change", function () {
 
 const addBlogBtn = document.querySelector("#addblogbtn");
 const listtBlogs = document.querySelector(".listBlogs");
+
 const addBlog = document.querySelector(".addBlog");
 addBlogBtn.addEventListener("click", () => {
   listtBlogs.style.display = "none";
@@ -74,17 +75,6 @@ addprojectBtn.addEventListener("click", () => {
   addProject.style.display = "block";
 });
 
-// update blog
-const updateBtnAction = document.querySelector(".update-action");
-const updatetext = document.querySelector(".addBlog .cardHeader h2");
-const updateSubmitBtn = document.querySelector("#btnUpdate");
-updateBtnAction.addEventListener("click", () => {
-  listtBlogs.style.display = "none";
-  addBlog.style.display = "block";
-  updatetext.textContent = "Update blog";
-  updateSubmitBtn.textContent = "update";
-});
-
 // profile popup
 
 const profileAdmin = document.getElementById("prof-user-img");
@@ -92,26 +82,6 @@ const subMenuWrap = document.querySelector(".sub-menu-wrap");
 profileAdmin.addEventListener("click", () => {
   subMenuWrap.classList.toggle("open-menu");
 });
-
-// delete box
-
-var modal = document.querySelector(".modal");
-var deleteAction = document.querySelector(".delete-action");
-var span = document.querySelector(".close");
-deleteAction.addEventListener("click", () => {
-  modal.style.display = "block";
-});
-span.addEventListener("click", () => {
-  hideModal();
-});
-function hideModal() {
-  modal.style.display = "none";
-}
-window.onclick = function (event) {
-  if (event.target == modal) {
-    hideModal();
-  }
-};
 
 const showQueries = () => {
   var queriesList;
@@ -126,18 +96,31 @@ const showQueries = () => {
     html += "<td>" + element.email + "</td>";
     html += "<td>" + element.message + "</td>";
     html += `<td class="msgActions">
-    <span class="update-action"
-      onclick="updateComment(${index})"><ion-icon name="sync-circle-outline"></ion-icon></span
-    ><span class="delete-action" onclick="deleteComment(${index})"
+    <span class="delete-action" onclick="deleteComment(${index})"
       ><ion-icon name="trash-outline"></ion-icon
     ></span>
   </td>`;
     html += "</tr>";
   });
 
-  document.querySelector("#adminContactList tbody").innerHTML = html;
-};
+  var html2 = "";
+  queriesList.forEach((element) => {
+    html2 += `<tr>
+    <td>
+      <h4>
+        ${element.email} <br />
+        <span
+          >${element.message}
+        </span>
+      </h4>
+    </td>
+  </tr>`;
+  });
 
+  document.querySelector("#adminContactList tbody").innerHTML = html;
+  document.querySelector("#recentMessageTopTable").innerHTML = html2;
+};
+showQueries();
 window.onload = showQueries; // Assigning the function directly to window.onload
 
 // delete comment
@@ -161,11 +144,10 @@ const blogAddFormValidation = () => {
   }
   return true;
 };
-
+const addBlogError = document.getElementById("addBlogError");
 //save blog function
 const saveNewBlog = () => {
   const validationResult = blogAddFormValidation();
-  const addBlogError = document.getElementById("addBlogError");
 
   if (validationResult === true) {
     // get blogs from local storage
@@ -178,7 +160,7 @@ const saveNewBlog = () => {
       document.querySelector("#file").files.length > 0
         ? document.querySelector("#file").files[0].name
         : null;
-    const content = document.querySelector("#editor p").textContent;
+    const content = document.querySelector("#editor").innerHTML; // Changed this line
 
     //add new blog to blogs array
     const newBlog = {
@@ -195,7 +177,7 @@ const saveNewBlog = () => {
       views: 0,
       likes: 0,
       isLiked: false,
-      isViewed: false,
+      isActive: false,
     };
 
     blogs.push(newBlog);
@@ -203,7 +185,7 @@ const saveNewBlog = () => {
     //update localStorage blogs
     localStorage.setItem("blogs", JSON.stringify(blogs));
     form["title"].value = "";
-    document.querySelector("#editor p").textContent = "";
+    document.querySelector("#editor").innerHTML = ""; // Changed this line
     addBlogError.textContent = "Blog added successfully!";
     addBlogError.style.backgroundColor = "green";
     addBlogError.style.display = "block";
@@ -214,5 +196,135 @@ const saveNewBlog = () => {
   }
 };
 
-const saveBlogButton = document.getElementById("btnUpdate");
+const saveBlogButton = document.getElementById("addBlogBtn");
+
 saveBlogButton.addEventListener("click", saveNewBlog);
+
+const dashboardDisplayBlogs = () => {
+  const table = document.querySelector(".listBlogs table tbody");
+  const recentTeble = document.querySelector("#dashboardRecentBlog tbody");
+  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+  let html = "";
+  let html2 = "";
+  blogs.forEach((element, index) => {
+    html += "<tr>";
+    html += "<td>" + element.date + "</td>";
+    html += "<td>" + element.title + "</td>";
+    if (element.isActive) {
+      html += "<td>" + "Active" + "</td>";
+    } else {
+      html += "<td>" + "Pending" + "</td>";
+    }
+    html += `<td class='actions'> 
+      <span class='update-action'> 
+      <ion-icon name='sync-circle-outline' onclick='updateBlog(${index})'> 
+      </ion-icon> 
+      </span> 
+      <span class='delete-action'> 
+      <ion-icon name='trash-outline' onclick='deleteBlog(${index})'> 
+      </ion-icon> 
+      </span> 
+      </td>`;
+    html += "</tr>";
+  });
+  blogs.forEach((element) => {
+    html2 += "<tr>";
+    html2 += "<td>" + element.date + "</td>";
+    html2 += "<td>" + element.title + "</td>";
+    if (element.isActive) {
+      html2 += "<td>";
+      html2 += `<span class="status active"> active </span>`;
+
+      html2 += "</td>";
+    } else {
+      html2 += "<td>";
+      html2 += `<span class="status panding"> Pending </span>`;
+
+      html2 += "</td>";
+    }
+    html += "</tr>";
+  });
+  table.innerHTML = html;
+  recentTeble.innerHTML = html2;
+};
+window.onload = dashboardDisplayBlogs;
+
+// delete Blog
+let currentDeleteIndex = 0;
+const deleteBlog = (index) => {
+  modal.style.display = "block";
+  currentDeleteIndex = index;
+};
+
+// delete box
+
+var modal = document.querySelector(".modal");
+var deleteAction = document.querySelector(".del");
+var span = document.querySelector(".close");
+deleteAction.addEventListener("click", () => {
+  const blogs = JSON.parse(localStorage.getItem("blogs"));
+  blogs.splice(currentDeleteIndex, 1);
+  localStorage.setItem("blogs", JSON.stringify(blogs));
+  dashboardDisplayBlogs();
+});
+
+span.addEventListener("click", () => {
+  hideModal();
+});
+function hideModal() {
+  modal.style.display = "none";
+}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    hideModal();
+  }
+};
+
+// update blog
+const textToChange = document.getElementById("textToChange");
+const updateButton = document.getElementById("updateBlogBtn");
+document.getElementById("addBlogBtn");
+const title = document.getElementById("title");
+const content = document.getElementById("editor");
+let currentUpdateIndex = 0;
+const blogs = JSON.parse(localStorage.getItem("blogs"));
+
+const updateBlog = (index) => {
+  listtBlogs.style.display = "none";
+  textToChange.textContent = "Update Blog";
+  addBlog.style.display = "block";
+  addBlogBtn.textContent = "update";
+  saveBlogButton.style.display = "none";
+  updateButton.style.display = "inline";
+  title.value = blogs[index].title;
+  content.innerHTML = blogs[index].content;
+  currentUpdateIndex = index;
+  console.log(index);
+};
+updateButton.addEventListener("click", () => {
+  if (blogAddFormValidation() == true) {
+    blogs[currentUpdateIndex].title = title.value;
+    blogs[currentUpdateIndex].content = content.innerHTML;
+    blogs[currentUpdateIndex].date = new Date().toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+    addBlogError.textContent = "Blog update successfully!";
+    addBlogError.style.backgroundColor = "green";
+    addBlogError.style.display = "block";
+    title.value = "";
+    content.innerHTML = "";
+  } else {
+    addBlogError.textContent = blogAddFormValidation();
+    addBlogError.style.backgroundColor = "red";
+    addBlogError.style.display = "block";
+  }
+});
+
+const totalNumberOfArticles = () => {
+  const articles = document.querySelector("#articlesNumber");
+  articles.textContent = blogs.length;
+};
+totalNumberOfArticles();
